@@ -22,9 +22,19 @@ namespace Tennis
         }
         public string GetScore()
         {
-            var score = "";
-            //ToDo : Write Score Login - Nishant
-            return score;
+            List<Score> predictedScore = PredictPosibleScore();
+            var scoreObj = predictedScore.Find(i => i.IsThisScore() == true);
+            return scoreObj != null ? scoreObj.ScoreName() : "";
+        }
+        private List<Score> PredictPosibleScore()
+        {
+            return new List<Score>()
+            {
+                 new TieScore(Player1, Player2),
+                 new WinScore(Player1, Player2),
+                 new AdvantageScore(Player1, Player2),
+                 new InitialScore(Player1, Player2)
+            };
         }
     }
 }
