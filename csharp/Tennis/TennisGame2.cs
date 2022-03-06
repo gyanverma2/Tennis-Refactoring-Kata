@@ -33,6 +33,7 @@ namespace Tennis
                  new TieScore(Player1, Player2),
                  new WinScore(Player1, Player2),
                  new AdvantageScore(Player1, Player2),
+                 new NormalScore(Player1, Player2),
                  new InitialScore(Player1, Player2)
             };
         }
