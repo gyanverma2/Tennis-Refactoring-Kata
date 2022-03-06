@@ -20,12 +20,20 @@ namespace Tennis
         {
             return Player1.IsPlayer(playerName) ? Player1 : Player2;
         }
+        /// <summary>
+        /// GetScore Function
+        /// </summary>
+        /// <returns>Final Score</returns>
         public string GetScore()
         {
             List<Score> predictedScore = PredictPosibleScore();
             var scoreObj = predictedScore.Find(i => i.IsThisScore() == true);
             return scoreObj != null ? scoreObj.ScoreName() : "";
         }
+        /// <summary>
+        /// Derive all posible score to avoid if-else and switch conditions
+        /// </summary>
+        /// <returns></returns>
         private List<Score> PredictPosibleScore()
         {
             return new List<Score>()
